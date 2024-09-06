@@ -39,10 +39,12 @@ const queryString = window.location.search;
 		//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
 
 		// Settings for Chat
-		//embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
-			// Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
-			// Returns a valid button ID.
-		//};
+		embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
+			if (uLanguage =='fr')
+			{
+				return '573Oz000000i689';
+			}
+		};
 		//embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
 		//embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
 		//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
@@ -167,7 +169,7 @@ if (!window.embedded_svc) {
         </style>
     </head>
  <body>
-        <h1>Welcome to the UAT CSR24 Einstein Bot Chat Test Page!</h1>
+        <h1>Welcome to the UAT CSR24 EN/FR Einstein Bot Chat Test Page!</h1>
         <p>Please refer to the chat button in the bottom right corner.</p>
         <div>
             <h2> Please refer to the chat button in the bottom right corner </h2>
