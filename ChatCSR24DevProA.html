@@ -32,6 +32,11 @@ const queryString = window.location.search;
 		embedded_svc.settings.displayHelpButton = true; //Or false
 		embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
 
+		if (uLanguage === 'fr')
+		{	
+			embedded_svc.settings.defaultMinimizedText = 'Discuter avec un Expert';
+		}
+		
 		//embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
 		//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
 
