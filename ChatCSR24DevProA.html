@@ -44,6 +44,14 @@ const queryString = window.location.search;
 		//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
 
 		// Settings for Chat
+		embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
+			if (uLanguage == "fr")
+			{
+				console.log('return French button');
+				return "573Ot000000oiDx";
+			}
+		};
+		
 		//embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
 			// Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
 			// Returns a valid button ID.
