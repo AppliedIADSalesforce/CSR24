@@ -1,0 +1,95 @@
+<html>
+  <style type="text/css">
+    .embeddedServiceHelpButton .helpButton .uiButton {
+      background-color: #005290;
+      font-family: "Arial", sans-serif;
+    }
+    .embeddedServiceHelpButton .helpButton .uiButton:focus {
+      outline: 1px solid #005290;
+    }
+  </style>
+
+  <head>
+    <title>Park CSR24 Einstein Bot Test Page</title>
+    <style>
+      h1 {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome to the Park CSR24 EN/FR Einstein Bot Chat Test Page!</h1>
+    <p>Please refer to the chat button in the bottom right corner.</p>
+    <div>
+      <h2>Please refer to the chat button in the bottom right corner</h2>
+    </div>
+    <script type="text/javascript">
+      const queryString = window.location.search;
+      //console.log('QUERY STRING: ' & queryString);
+      const urlParams = new URLSearchParams(queryString);
+
+      const fName = urlParams.get("fname");
+      console.log("First Name: " + fName);
+
+      const lName = urlParams.get("lname");
+      console.log("Last Name: " + lName);
+
+      const eMail = urlParams.get("email");
+      console.log("Email: " + eMail);
+
+      const uLanguage = urlParams.get("lang");
+      console.log("Language: " + uLanguage);
+
+      function initEmbeddedMessaging() {
+        try {
+          embeddedservice_bootstrap.settings.language = uLanguage; // For example, enter 'en' or 'en-US'
+
+          embeddedservice_bootstrap.settings.extraPrechatFormDetails = [
+            {
+              label: "First Name",
+              name: "FirstName",
+              value: fName,
+              displayToAgent: true,
+              transcriptFields: ["FirstName__c"],
+            },
+            {
+              label: "Last Name",
+              value: lName,
+              displayToAgent: true,
+              transcriptFields: ["LastName__c"],
+            },
+            {
+              label: "Language",
+              value: uLanguage,
+              displayToAgent: true,
+              transcriptFields: ["User_Language__c"],
+            },
+            {
+              label: "Email",
+              value: eMail,
+              displayToAgent: true,
+              transcriptFields: ["Email__c"],
+            },
+          ];
+
+          embeddedservice_bootstrap.init(
+            "00DO100000BAOKd",
+            "CSR24",
+            "https://appliedsystems--park.sandbox.my.site.com/ESWCSR241755283291999",
+            {
+              scrt2URL:
+                "https://appliedsystems--park.sandbox.my.salesforce-scrt.com",
+            }
+          );
+        } catch (err) {
+          console.error("Error loading Embedded Messaging: ", err);
+        }
+      }
+    </script>
+    <script
+      type="text/javascript"
+      src="https://appliedsystems--park.sandbox.my.site.com/ESWCSR241755283291999/assets/js/bootstrap.min.js"
+      onload="initEmbeddedMessaging()"
+    ></script>
+  </body>
+</html>
