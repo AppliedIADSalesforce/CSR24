@@ -135,34 +135,20 @@ const queryString = window.location.search;
 
 		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
 		embedded_svc.settings.entryFeature = 'LiveAgent';
-
+		try{
 		embedded_svc.init(
-			'https://appliedsystems--park.sandbox.my.salesforce.com',
-			'https://appliedsystems--park.sandbox.my.site.com/AppliedGuestCommunity',
-			gslbBaseURL,
-			'00DO100000BAOKd',
-			'CSR24_Digital_Assistant',
-			{
-				baseLiveAgentContentURL: 'https://c.la12s-core1.sfdc-yfeipo.salesforceliveagent.com/content',
-				deploymentId: '572Pl000000Ck8j',
-				buttonId: '573Pl0000002uhF',
-				baseLiveAgentURL: 'https://d.la12s-core1.sfdc-yfeipo.salesforceliveagent.com/chat',
-				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04IPl000000AQCXMA4_191e7cbc935',
-				isOfflineSupportEnabled: false
-			}
-		);
+				'00DO100000BAOKd',
+				'CSR24',
+				'https://appliedsystems--park.sandbox.my.site.com/ESWCSR241755283291999',
+				{
+					scrt2URL: 'https://appliedsystems--park.sandbox.my.salesforce-scrt.com'
+				}
+			);
+		} catch (err) {
+			console.error('Error loading Embedded Messaging: ', err);
+		}
 	};
 
-	if (!window.embedded_svc) {
-		var s = document.createElement('script');
-		s.setAttribute('src', 'https://appliedsystems--park.sandbox.my.salesforce.com/embeddedservice/5.0/esw.min.js');
-		s.onload = function() {
-			initESW(null);
-		};
-		document.body.appendChild(s);
-	} else {
-		initESW('https://service.force.com');
-	}
 
 </script>
  <head>
