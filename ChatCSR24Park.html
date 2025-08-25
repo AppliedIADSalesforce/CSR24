@@ -28,7 +28,7 @@ const queryString = window.location.search;
 	const uLanguage = urlParams.get('lang');
 	console.log('Language: ' + uLanguage);
 
-	var initESW = function(gslbBaseURL) {
+	function initESW() {
 		embedded_svc.settings.displayHelpButton = true; //Or false
 		embedded_svc.settings.language = uLanguage; //For example, enter 'en' or 'en-US'
 
@@ -151,6 +151,7 @@ const queryString = window.location.search;
 
 
 </script>
+<script type='text/javascript' src='https://appliedsystems--park.sandbox.my.site.com/ESWCSR241755283291999/assets/js/bootstrap.min.js' onload='initESW()'></script>
  <head>
         <title> UAT CSR24 Einstein Bot Test Page </title>
         <style>
