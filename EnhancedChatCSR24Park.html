@@ -44,34 +44,6 @@
         try {
           embeddedservice_bootstrap.settings.language = uLanguage; // For example, enter 'en' or 'en-US'
 
-          embeddedservice_bootstrap.settings.extraPrechatFormDetails = [
-            {
-              label: "First Name",
-              name: "FirstName",
-              value: fName,
-              displayToAgent: true,
-              transcriptFields: ["FirstName__c"],
-            },
-            {
-              label: "Last Name",
-              value: lName,
-              displayToAgent: true,
-              transcriptFields: ["LastName__c"],
-            },
-            {
-              label: "Language",
-              value: uLanguage,
-              displayToAgent: true,
-              transcriptFields: ["User_Language__c"],
-            },
-            {
-              label: "Email",
-              value: eMail,
-              displayToAgent: true,
-              transcriptFields: ["Email__c"],
-            },
-          ];
-
           embeddedservice_bootstrap.init(
             "00DO100000BAOKd",
             "CSR24",
@@ -81,10 +53,28 @@
                 "https://appliedsystems--park.sandbox.my.salesforce-scrt.com",
             }
           );
+		  console.log("Chat Loaded");
         } catch (err) {
           console.error("Error loading Embedded Messaging: ", err);
         }
       }
+
+      window.addEventListener("onEmbeddedMessagingReady", e => {
+        //log event
+        console.log("onEmbeddedMessagingReady event triggered");
+        
+        //set visible prechat field
+        embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+            // List the pre-chat field names with the value and whether
+            // it's editable in the pre-chat form.
+            "InvisibleFirstName" : fName,
+            "InvisibleLastName" : lName,
+            "InvisibleEmail" : eMail,
+            "InvisibleLanguage" : uLanguage
+        });
+      
+    });
+
     </script>
     <script
       type="text/javascript"
