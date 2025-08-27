@@ -18,7 +18,9 @@
     </style>
   </head>
   <body>
-    <h1>Welcome to the Park Enhanced CSR24 EN/FR Einstein Bot Chat Test Page!</h1>
+    <h1>
+      Welcome to the Park Enhanced CSR24 EN/FR Einstein Bot Chat Test Page!
+    </h1>
     <p>Please refer to the chat button in the bottom right corner.</p>
     <div>
       <h2>Please refer to the chat button in the bottom right corner</h2>
@@ -40,10 +42,25 @@
       const uLanguage = urlParams.get("lang");
       console.log("Language: " + uLanguage);
 
-       function initEmbeddedMessaging() {
+      function initEmbeddedMessaging() {
         try {
-		      console.log("Chat Init Started");
-          embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+          console.log("Chat Init Started");
+          console.log("Before addEventListener");
+          window.addEventListener("onEmbeddedMessagingReady", (e) => {
+            //log event
+            console.log("onEmbeddedMessagingReady event triggered");
+
+            //set visible prechat field
+            embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+              // List the pre-chat field names with the value and whether
+              // it's editable in the pre-chat form.
+              InvisibleFirstName: fName,
+              InvisibleLastName: lName,
+              InvisibleEmail: eMail,
+              InvisibleLanguage: uLanguage,
+            });
+          });
+          embeddedservice_bootstrap.settings.language = "en_US"; // For example, enter 'en' or 'en-US'
 
           embeddedservice_bootstrap.init(
             "00DO100000BAOKd",
@@ -54,38 +71,19 @@
                 "https://appliedsystems--park.sandbox.my.salesforce-scrt.com",
             }
           );
-		  console.log("Chat Loaded");
+          console.log("Chat Loaded");
         } catch (err) {
           console.error("Error loading Embedded Messaging: ", err);
         }
       }
-      console.log("Before addEventListener");
-      window.addEventListener("onEmbeddedMessagingReady", e => {
-        //log event
-        console.log("onEmbeddedMessagingReady event triggered");
-        
-        //set visible prechat field
-        embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
-            // List the pre-chat field names with the value and whether
-            // it's editable in the pre-chat form.
-            "InvisibleFirstName" : fName,
-            "InvisibleLastName" : lName,
-            "InvisibleEmail" : eMail,
-            "InvisibleLanguage" : uLanguage
-        });
-      
-    });
-    
-    initEmbeddedMessaging()
+
+      initEmbeddedMessaging();
     </script>
-    
+
     <!--<script
       type="text/javascript"
       src="https://appliedsystems--park.sandbox.my.site.com/ESWCSR241755283291999/assets/js/bootstrap.min.js"
       onload="initEmbeddedMessaging()"
     ></script>-->
-
-   
-
   </body>
 </html>
