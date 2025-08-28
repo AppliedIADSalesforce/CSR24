@@ -1,14 +1,5 @@
 <html>
-  <style type="text/css">
-    .embeddedServiceHelpButton .helpButton .uiButton {
-      background-color: #005290;
-      font-family: "Arial", sans-serif;
-    }
-    .embeddedServiceHelpButton .helpButton .uiButton:focus {
-      outline: 1px solid #005290;
-    }
-  </style>
-
+  
   <head>
     <title>Park Enhanced CSR24 Einstein Bot Test Page</title>
     <style>
@@ -17,12 +8,6 @@
       }
     </style>
     
-
-    <!--<script
-      type="text/javascript"
-      onload="initEmbeddedMessaging()"
-      src="https://appliedsystems--park.sandbox.my.site.com/ESWCSR241755283291999/assets/js/bootstrap.min.js"
-    ></script>-->
   </head>
   <body>
     <h1>
@@ -51,11 +36,8 @@
 
       function initEmbeddedMessaging() {
         try {
-          console.log("Chat Init Started");
-          console.log("Before addEventListener");
           window.addEventListener("onEmbeddedMessagingReady", (e) => {
             //log event
-            console.log("onEmbeddedMessagingReady event triggered");
 
             //set visible prechat field
             embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
@@ -67,10 +49,8 @@
               InvisibleLanguage: uLanguage,
             });
           });
-          console.log("Before set Language");
-          embeddedservice_bootstrap.settings.language = "en_US"; // For example, enter 'en' or 'en-US'
+          embeddedservice_bootstrap.settings.language = uLanguage; // For example, enter 'en' or 'en-US'
 
-          console.log("Before embeddedservice_bootstrap.init");
           embeddedservice_bootstrap.init(
             "00DO100000BAOKd",
             "CSR24",
