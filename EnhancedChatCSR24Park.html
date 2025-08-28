@@ -60,8 +60,10 @@
               InvisibleLanguage: uLanguage,
             });
           });
+          console.log("Before set Language");
           embeddedservice_bootstrap.settings.language = "en_US"; // For example, enter 'en' or 'en-US'
 
+          console.log("Before embeddedservice_bootstrap.init");
           embeddedservice_bootstrap.init(
             "00DO100000BAOKd",
             "CSR24",
@@ -81,6 +83,7 @@
     <script
       type="text/javascript"
       src="https://appliedsystems--park.sandbox.my.site.com/ESWCSR241755283291999/assets/js/bootstrap.min.js"
-    >initEmbeddedMessaging();</script>
+      onload="initEmbeddedMessaging()"
+    ></script>
   </body>
 </html>
