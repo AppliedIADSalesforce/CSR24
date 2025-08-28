@@ -36,17 +36,17 @@
 
       function initEmbeddedMessaging() {
         try {
-          window.addEventListener("onEmbeddedMessagingReady", (e) => {
+          window.addEventListener("onEmbeddedMessagingReady", () => {
             //log event
 
             //set visible prechat field
             embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
               // List the pre-chat field names with the value and whether
               // it's editable in the pre-chat form.
-              InvisibleFirstName: fName,
-              InvisibleLastName: lName,
-              InvisibleEmail: eMail,
-              InvisibleLanguage: uLanguage,
+              "pcFirstName": fName,
+              "pcLastName": lName,
+              "pcEmail": eMail,
+              "UserLanguage": uLanguage,
             });
           });
           embeddedservice_bootstrap.settings.language = uLanguage; // For example, enter 'en' or 'en-US'
