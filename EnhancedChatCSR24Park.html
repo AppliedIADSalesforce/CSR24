@@ -36,17 +36,7 @@
 
       function initEmbeddedMessaging() {
         try {
-          window.addEventListener("onEmbeddedMessagingReady", () => {
-            //log event
-            console.log("onEmbeddedMessagingReady started")
-            //set visible prechat field
-            embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
-              pcFirstName: fName,
-              pcLastName: lName,
-              pcEmail: eMail,
-              UserLanguage: uLanguage,
-            });
-          });
+          
           embeddedservice_bootstrap.settings.language = uLanguage; // For example, enter 'en' or 'en-US'
 
           embeddedservice_bootstrap.init(
@@ -58,6 +48,12 @@
                 "https://appliedsystems--park.sandbox.my.salesforce-scrt.com",
             }
           );
+           embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+              pcFirstName: fName,
+              pcLastName: lName,
+              pcEmail: eMail,
+              UserLanguage: uLanguage,
+            });
           console.log("Chat Loaded");
         } catch (err) {
           console.error("Error loading Embedded Messaging: ", err);
@@ -74,6 +70,7 @@
           initEmbeddedMessaging();
         };
         document.body.appendChild(s);
+       
       }
     </script>
   </body>
