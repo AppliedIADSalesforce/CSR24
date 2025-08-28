@@ -69,13 +69,25 @@
           console.error("Error loading Embedded Messaging: ", err);
         }
       }
+
+      if (!window.embeddedservice_bootstrap) {
+        var s = document.createElement("script");
+        s.setAttribute(
+          "src",
+          "https://appliedsystems--park.sandbox.my.site.com/ESWCSR241755283291999/assets/js/bootstrap.min.js"
+        );
+        s.onload = function () {
+          initEmbeddedMessaging();
+        };
+        document.body.appendChild(s);
+      }
     </script>
 
-    <script
+    <!--<script
       type="text/javascript"
       onload="initEmbeddedMessaging()"
       src="https://appliedsystems--park.sandbox.my.site.com/ESWCSR241755283291999/assets/js/bootstrap.min.js"
-    ></script>
+    ></script>-->
   </head>
   <body>
     <h1>
@@ -85,6 +97,5 @@
     <div>
       <h2>Please refer to the chat button in the bottom right corner</h2>
     </div>
-    
   </body>
 </html>
