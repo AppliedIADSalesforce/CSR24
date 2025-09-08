@@ -17,7 +17,11 @@
       <h2>Please refer to the chat button in the bottom right corner</h2>
     </div>
 
-	  const queryString = window.location.search;
+	 
+
+	  
+<script type='text/javascript'>
+	 const queryString = window.location.search;
       //console.log('QUERY STRING: ' & queryString);
       const urlParams = new URLSearchParams(queryString);
 
@@ -32,10 +36,7 @@
 
       const uLanguage = urlParams.get("lang");
       console.log("Language: " + uLanguage);
-
-	  
-<script type='text/javascript'>
-	 	
+	
 	function initEmbeddedMessaging() {
 		try {
 			embeddedservice_bootstrap.settings.language = uLanguage'; // For example, enter 'en' or 'en-US'
@@ -51,7 +52,7 @@
 		} catch (err) {
 			console.error('Error loading Embedded Messaging: ', err);
 		}
-			
+	};	
 			 window.addEventListener("onEmbeddedMessagingReady", e => {
             //log event
             console.log("onEmbeddedMessagingReady started");
@@ -65,12 +66,7 @@
               UserLanguage: uLanguage,
             });		 
           });
-			
-			
-	};
-
-	
-	
+		
 	
 </script>
 <script type='text/javascript' src='https://appliedsystems--park.sandbox.my.site.com/ESWCSR241755283291999/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
