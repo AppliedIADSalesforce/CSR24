@@ -21,22 +21,7 @@
 
 	  
 <script type='text/javascript'>
-	 const queryString = window.location.search;
-      //console.log('QUERY STRING: ' & queryString);
-      const urlParams = new URLSearchParams(queryString);
-
-      const fName = urlParams.get("fname");
-      console.log("First Name: " + fName);
-
-      const lName = urlParams.get("lname");
-      console.log("Last Name: " + lName);
-
-      const eMail = urlParams.get("email");
-      console.log("Email: " + eMail);
-
-      const uLanguage = urlParams.get("lang");
-      console.log("Language: " + uLanguage);
-	
+		
 	function initEmbeddedMessaging() {
 		try {
 			embeddedservice_bootstrap.settings.language = uLanguage'; // For example, enter 'en' or 'en-US'
@@ -53,6 +38,23 @@
 			console.error('Error loading Embedded Messaging: ', err);
 		}
 	};	
+
+	 const queryString = window.location.search;
+      //console.log('QUERY STRING: ' & queryString);
+      const urlParams = new URLSearchParams(queryString);
+
+      const fName = urlParams.get("fname");
+      console.log("First Name: " + fName);
+
+      const lName = urlParams.get("lname");
+      console.log("Last Name: " + lName);
+
+      const eMail = urlParams.get("email");
+      console.log("Email: " + eMail);
+
+      const uLanguage = urlParams.get("lang");
+      console.log("Language: " + uLanguage);
+	
 			 window.addEventListener("onEmbeddedMessagingReady", e => {
             //log event
             console.log("onEmbeddedMessagingReady started");
