@@ -1,3 +1,14 @@
+<html>
+  <head>
+    <title>Park Enhanced CSR24 Einstein Bot Test Page</title>
+    <style>
+      h1 {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+
 <script type='text/javascript'>
 	function initEmbeddedMessaging() {
 		try {
@@ -17,3 +28,5 @@
 	};
 </script>
 <script type='text/javascript' src='https://appliedsystems--park.sandbox.my.site.com/ESWTAMCR1755878622079/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+</body>
+</html>
