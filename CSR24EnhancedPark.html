@@ -67,9 +67,21 @@
 			console.error('Error loading Embedded Messaging: ', err);
 		}
 	};	
- 
+
+	 if (!window.embeddedservice_bootstrap) {
+        var s = document.createElement("script");
+        s.setAttribute(
+          "src",
+          "https://appliedsystems--park.sandbox.my.site.com/ESWCSR241755283291999/assets/js/bootstrap.min.js"
+        );
+        s.onload = function () {
+          initEmbeddedMessaging();
+        };
+        document.body.appendChild(s);
+      }
+	
 </script>
-<script type='text/javascript' src='https://appliedsystems--park.sandbox.my.site.com/ESWCSR241755283291999/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+<!-- <script type='text/javascript' src='https://appliedsystems--park.sandbox.my.site.com/ESWCSR241755283291999/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script> -->
 
 </body>
 </html>
