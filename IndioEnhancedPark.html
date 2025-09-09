@@ -15,7 +15,7 @@
     <div>
       <h2>Please refer to the chat button in the bottom right corner</h2>
     </div>
-    <script type="text/javascript">
+    <script type='text/javascript'>
       const queryString = window.location.search;
       //console.log('QUERY STRING: ' & queryString);
       const urlParams = new URLSearchParams(queryString);
@@ -34,10 +34,9 @@
 
       function initEmbeddedMessaging() {
         try {
-          embeddedservice_bootstrap.settings.externalStyles = [
-            "NF_Applied_Assistant_CSS",
-          ];
           embeddedservice_bootstrap.settings.language = uLanguage; // For example, enter 'en' or 'en-US'
+          //embeddedservice_bootstrap.settings.externalStyles = ["NF_Applied_Assistant_CSS"];
+
           window.addEventListener("onEmbeddedMessagingReady", () => {
             //log event
             console.log("onEmbeddedMessagingReady started");
@@ -51,12 +50,12 @@
           });
 
           embeddedservice_bootstrap.init(
-            "00DO100000BAOKd",
-            "Indio",
-            "https://appliedsystems--park.sandbox.my.site.com/ESWIndio1757356247875",
+            '00DO100000BAOKd',
+            'Indio',
+            'https://appliedsystems--park.sandbox.my.site.com/ESWIndio1757356247875',
             {
               scrt2URL:
-                "https://appliedsystems--park.sandbox.my.salesforce-scrt.com",
+                'https://appliedsystems--park.sandbox.my.salesforce-scrt.com',
             }
           );
 
