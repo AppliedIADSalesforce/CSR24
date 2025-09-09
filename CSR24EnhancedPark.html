@@ -26,6 +26,10 @@
 		try {
 			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 
+			 window.addEventListener("onEmbeddedMessagingReady", () => {
+            //log event
+            console.log("onEmbeddedMessagingReady started");
+				 
 			embeddedservice_bootstrap.init(
 				'00DO100000BAOKd',
 				'CSR24',
@@ -54,18 +58,15 @@
 
       const uLanguage = urlParams.get("lang");
       console.log("Language: " + uLanguage);
-	
-			 window.addEventListener("onEmbeddedMessagingReady", () => {
-            //log event
-            console.log("onEmbeddedMessagingReady started");
+			
 
 
 		//set visible prechat field
             embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
-              pcFirstName: fName,
-              pcLastName: lName,
-              pcEmail: eMail,
-              UserLanguage: uLanguage,
+              "pcFirstName": fName,
+              "pcLastName": lName,
+              "pcEmail": eMail,
+              "UserLanguage": uLanguage,
             });		 
           });
 		
