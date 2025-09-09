@@ -44,7 +44,8 @@
 			 window.addEventListener("onEmbeddedMessagingReady", () => {
             //log event
             console.log("onEmbeddedMessagingReady started");
-
+			});
+			
 				 //set visible prechat field
             embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
               "pcFirstName": fName,
@@ -52,7 +53,7 @@
               "pcEmail": eMail,
               "UserLanguage": uLanguage,
             });		 
-          });
+          
 			
 			embeddedservice_bootstrap.init(
 				'00DO100000BAOKd',
