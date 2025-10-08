@@ -46,7 +46,7 @@
 	//src="https://appliedsystems--park.sandbox.lightning.force.com/lightning/lightning.out.js"
 		
 	function initEmbeddedMessaging() {
-	  embeddedservice_bootstrap.settings.language = uLanguage; // For example, enter 'en' or 'en-US'
+	  /* embeddedservice_bootstrap.settings.language = uLanguage; // For example, enter 'en' or 'en-US'
 						
 		window.addEventListener("onEmbeddedMessagingReady", () => {
       //log event
@@ -59,12 +59,12 @@
         pcEmail: eMail,
         UserLanguage: uLanguage,
       });		
-		});
+		}); */
 
     window.enhancedchat.init('00DO100000BAOKd', 'CSR24', 'https://appliedsystems--park.sandbox.my.salesforce-scrt.com', 'https://appliedsystems--park.sandbox.my.site.com/ESWCSR241755283291999');
   };	
 </script>
-<script src="https://appliedsystems--park.sandbox.my.site.com/ESWCSR241755283291999vforcesite/resource/enchat__AdvancedMessagingResources/js/enhancedchat.js" onload="initEmbeddedMessaging()"></script>
+<script src="https://appliedsystems--park.sandbox.my.site.com/ESWCSR241755283291999vforcesite/resource/enchat__AdvancedMessagingResources/js/enhancedchat.js" onload="initEmbeddedMessaging()">
 <!-- <script type='text/javascript' src='https://appliedsystems--park.sandbox.my.site.com/ESWCSR241755283291999/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script> -->
 
 
