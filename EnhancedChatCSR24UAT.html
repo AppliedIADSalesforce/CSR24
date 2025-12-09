@@ -1,0 +1,88 @@
+<html>
+  <head>
+    <title>UAT Enhanced CSR24 Einstein Bot Test Page</title>
+    <style>
+      h1 {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>
+      Welcome to the UAT Enhanced CSR24 EN/FR Einstein Bot Chat Test Page!
+    </h1>
+    <p>Please refer to the chat button in the bottom right corner.</p>
+    <div>
+      <h2>Please refer to the chat button in the bottom right corner</h2>
+    </div>
+    <script type="text/javascript">
+      const queryString = window.location.search;
+      //console.log('QUERY STRING: ' & queryString);
+      const urlParams = new URLSearchParams(queryString);
+
+      const fName = urlParams.get("fname");
+      console.log("First Name: " + fName);
+
+      const lName = urlParams.get("lname");
+      console.log("Last Name: " + lName);
+
+      const eMail = urlParams.get("email");
+      console.log("Email: " + eMail);
+
+      const uLanguage = urlParams.get("lang");
+      console.log("Language: " + uLanguage);
+
+      function initEmbeddedMessaging() {
+        try {
+          window.addEventListener(
+            "onEmbeddedMessagingConversationStarted",
+            (event) => {
+              console.log(
+                "Received the onEmbeddedMessagingConversationStarted event…"
+              );
+              console.log("Event detail: ", event.detail);
+            }
+          );
+          window.addEventListener("onEmbeddedMessagingReady", () => {
+            //log event
+            console.log("onEmbeddedMessagingReady started");
+            //set visible prechat field
+            embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+              pcFirstName: fName,
+              pcLastName: lName,
+              pcEmail: eMail,
+              UserLanguage: uLanguage,
+            });
+          });
+          embeddedservice_bootstrap.settings.language = uLanguage; // For example, enter 'en' or 'en-US'
+
+          embeddedservice_bootstrap.init(
+            "00DO300000Ee9Nt",
+            "CSR24",
+            "https://appliedsystems--uat.sandbox.my.site.com/ESWCSR241765294889202",
+            {
+              scrt2URL:
+                "https://appliedsystems--uat.sandbox.my.salesforce-scrt.com",
+            }
+          );
+
+          console.log("Chat Loaded");
+        } catch (err) {
+          console.error("Error loading Embedded Messaging: ", err);
+        }
+      }
+
+      if (!window.embeddedservice_bootstrap) {
+        var s = document.createElement("script");
+        s.setAttribute(
+          "src",
+          "'https://appliedsystems--uat.sandbox.my.site.com/ESWCSR241765294889202/assets/js/bootstrap.min.js"
+        );
+        s.onload = function () {
+          initEmbeddedMessaging();
+        };
+        document.body.appendChild(s);
+      }
+    </script>
+  </body>
+</html>
