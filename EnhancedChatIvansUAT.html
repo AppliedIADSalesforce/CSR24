@@ -31,8 +31,6 @@
       console.log("Email: " + eMail);
 
       function initEmbeddedMessaging() {
-        
-        console.log("initEmbeddedMessaging started");
         try {
           window.addEventListener(
             "onEmbeddedMessagingConversationStarted",
@@ -72,22 +70,17 @@
       }
 
       if (!window.embeddedservice_bootstrap) {
-        console.log("Debug 1");
         var s = document.createElement("script");
-        console.log("Debug 2");
         s.setAttribute(
           "src",
           "https://appliedsystems--uat.sandbox.my.site.com/ESWIvans1763518036088/assets/js/bootstrap.min.js"
         );
-        console.log("Debug 3");
 
         s.onload = function () {
           initEmbeddedMessaging();
         };
-        console.log("Debug 4");
 
         document.body.appendChild(s);
-        console.log("Debug 5");
 
       }
     </script>
